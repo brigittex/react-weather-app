@@ -1,0 +1,8 @@
+.Footer {
+  text-align: center;
+  font-size: 15px;
+  color: rgb(152, 152, 152);
+  display: block;
+  margin: 10 auto;
+  font-family: "Roboto Mono", monospace;
+}

@@ -6,16 +6,6 @@ export default function App() {
     <div className="App">
       <div className="container">
         <Weather />
-        <footer>
-          <a
-            href="https://github.com/brigittex/react-weather-app"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open-source code
-          </a>{" "}
-          by Brigitte Giguère 🍁
-        </footer>
       </div>
     </div>
   );
