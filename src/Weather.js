@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Loader from "react-loader-spinner";
 import Footer from "./Footer.js";
 import CurrentWeather from "./CurrentWeather.js";
-import CurrentIcon from "./CurrentIcon.js";
+import WeatherIcon from "./WeatherIcon.js";
 import CurrentTemp from "./CurrentTemp.js";
 import City from "./City.js";
+import Forecast from "./Forecast.js";
 import axios from "axios";
 import "./Weather.css";
 
@@ -81,12 +82,14 @@ export default function Weather(props) {
                   <CurrentWeather weather={weather} />
                 </div>
                 <div className="col-3">
-                  <CurrentIcon weather={weather} />
+                  <WeatherIcon icon={weather.icon} size={130} />
                 </div>
                 <div className="col-5">
                   <CurrentTemp weather={weather} />
                 </div>
               </div>
+              <hr />
+              <Forecast />
             </div>
           </div>
           <Footer />
