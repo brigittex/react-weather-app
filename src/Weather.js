@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Loader from "react-loader-spinner";
 import Footer from "./Footer.js";
 import CurrentWeather from "./CurrentWeather.js";
 import CurrentIcon from "./CurrentIcon.js";
@@ -8,7 +9,7 @@ import City from "./City.js";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
+export default function Weather(props) {
   let [location, setLocation] = useState(null);
   let [loaded, setLoaded] = useState(false);
   let [weather, setWeather] = useState({});
@@ -39,6 +40,15 @@ export default function Weather() {
 
   function updateLocation(event) {
     setLocation(event.target.value);
+  }
+
+  function defaultSearch() {
+    setLoaded(true);
+    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+    let apiKey = "a825d12564855984e0e5673562cb2c52";
+    let units = "metric";
+    let apiUrl = `${apiEndpoint}appid=${apiKey}&units=${units}&q=${props.city}`;
+    axios.get(apiUrl).then(displayWeather);
   }
 
   let form = (
@@ -94,11 +104,22 @@ export default function Weather() {
       </div>
     );
   } else {
+    //defaultSearch();
     return (
       <div className="Weather">
         <div className="container">
           <div className="weather-app-wrapper">
-            <div className="weather-app">{form}</div>
+            <div className="weather-app">
+              {form}
+              <Loader
+                className="loader"
+                type="BallTriangle"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                timeout={10000} //3 secs
+              />
+            </div>
           </div>
           <Footer />
         </div>

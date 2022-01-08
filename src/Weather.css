@@ -26,3 +26,7 @@ body {
 .Weather h1 {
   text-align: center;
 }
+
+.Weather .loader {
+  text-align: center;
+}
