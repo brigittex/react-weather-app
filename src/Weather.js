@@ -10,10 +10,10 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-  let [location, setLocation] = useState(null);
+  let [location, setLocation] = useState(props.city);
   let [weather, setWeather] = useState({ loaded: false });
 
-  function displayWeather(response) {
+  function logWeather(response) {
     setWeather({
       location: response.data.name,
       temperature: Math.round(response.data.main.temp),
@@ -30,23 +30,19 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
-    let apiKey = "a825d12564855984e0e5673562cb2c52";
-    let units = "metric";
-    let apiUrl = `${apiEndpoint}appid=${apiKey}&units=${units}&q=${location}`;
-    axios.get(apiUrl).then(displayWeather);
+    search();
   }
 
   function updateLocation(event) {
     setLocation(event.target.value);
   }
 
-  function defaultSearch() {
+  function search() {
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
     let apiKey = "a825d12564855984e0e5673562cb2c52";
     let units = "metric";
-    let apiUrl = `${apiEndpoint}appid=${apiKey}&units=${units}&q=${props.city}`;
-    axios.get(apiUrl).then(displayWeather);
+    let apiUrl = `${apiEndpoint}appid=${apiKey}&units=${units}&q=${location}`;
+    axios.get(apiUrl).then(logWeather);
   }
 
   let form = (
@@ -102,7 +98,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    defaultSearch();
+    search();
     return (
       <div className="Weather">
         <div className="container">
