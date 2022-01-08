@@ -4,7 +4,6 @@ import Footer from "./Footer.js";
 import CurrentWeather from "./CurrentWeather.js";
 import CurrentIcon from "./CurrentIcon.js";
 import CurrentTemp from "./CurrentTemp.js";
-import UnitConversion from "./UnitConversion.js";
 import City from "./City.js";
 import axios from "axios";
 import "./Weather.css";
@@ -78,17 +77,14 @@ export default function Weather(props) {
               {form}
               <City weather={weather} />
               <div className="row">
-                <div className="col-3">
+                <div className="col-4">
                   <CurrentWeather weather={weather} />
                 </div>
                 <div className="col-4">
                   <CurrentIcon weather={weather} />
                 </div>
-                <div className="col-3">
+                <div className="col-4">
                   <CurrentTemp weather={weather} />
-                </div>
-                <div className="col-2">
-                  <UnitConversion />
                 </div>
               </div>
             </div>
