@@ -104,21 +104,21 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    //defaultSearch();
+    defaultSearch();
     return (
       <div className="Weather">
         <div className="container">
           <div className="weather-app-wrapper">
             <div className="weather-app">
               {form}
-              <Loader
-                className="loader"
-                type="BallTriangle"
-                color="#00BFFF"
-                height={100}
-                width={100}
-                timeout={10000} //3 secs
-              />
+              <div className="loader">
+                <Loader
+                  type="BallTriangle"
+                  color="#989898"
+                  height={100}
+                  width={100}
+                />
+              </div>
             </div>
           </div>
           <Footer />
