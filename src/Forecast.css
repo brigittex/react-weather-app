@@ -1,0 +1,12 @@
+.Forecast {
+  text-align: center;
+}
+
+.Forecast .Forecast-day {
+  font-weight: bold;
+}
+
+.Forecast .Forecast-min {
+  opacity: 0.5;
+  padding-right: 5px;
+}
