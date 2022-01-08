@@ -24,6 +24,8 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       feels_like: Math.round(response.data.main.feels_like),
       dt: new Date(response.data.dt * 1000),
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
       loaded: true,
     });
   }
@@ -89,7 +91,7 @@ export default function Weather(props) {
                 </div>
               </div>
               <hr />
-              <Forecast />
+              <Forecast weather={weather} />
             </div>
           </div>
           <Footer />
