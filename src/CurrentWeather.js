@@ -10,8 +10,7 @@ function findWeekday(response) {
     "Friday",
     "Saturday",
   ];
-  let now = new Date(response);
-  let day = days[now.getDay()];
+  let day = days[response.getDay()];
   return day;
 }
 
@@ -31,18 +30,16 @@ function findDate(response) {
     "December",
   ];
 
-  let now = new Date(response);
-  let month = months[now.getMonth()];
-  let date = now.getDate();
-  let year = now.getFullYear();
+  let month = months[response.getMonth()];
+  let date = response.getDate();
+  let year = response.getFullYear();
   let fullDate = `${month} ${date}, ${year}`;
   return fullDate;
 }
 
 function findTime(response) {
-  let now = new Date(response);
-  let hour = now.getHours();
-  let minute = now.getMinutes();
+  let hour = response.getHours();
+  let minute = response.getMinutes();
 
   //moving from 24hr clock to 12hr clock
   let half = null;

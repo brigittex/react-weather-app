@@ -23,7 +23,7 @@ export default function Weather(props) {
       iconURL: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       icon: response.data.weather[0].icon,
       feels_like: Math.round(response.data.main.feels_like),
-      dt: response.data.dt * 1000,
+      dt: new Date(response.data.dt * 1000),
       loaded: true,
     });
   }
