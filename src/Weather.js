@@ -11,8 +11,7 @@ import "./Weather.css";
 
 export default function Weather(props) {
   let [location, setLocation] = useState(null);
-  let [loaded, setLoaded] = useState(false);
-  let [weather, setWeather] = useState({});
+  let [weather, setWeather] = useState({ loaded: false });
 
   function displayWeather(response) {
     setWeather({
@@ -25,12 +24,12 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       feels_like: Math.round(response.data.main.feels_like),
       dt: response.data.dt * 1000,
+      loaded: true,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setLoaded(true);
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
     let apiKey = "a825d12564855984e0e5673562cb2c52";
     let units = "metric";
@@ -43,7 +42,6 @@ export default function Weather(props) {
   }
 
   function defaultSearch() {
-    setLoaded(true);
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
     let apiKey = "a825d12564855984e0e5673562cb2c52";
     let units = "metric";
@@ -75,7 +73,7 @@ export default function Weather(props) {
       </div>
     </form>
   );
-  if (loaded) {
+  if (weather.loaded) {
     return (
       <div className="Weather">
         <div className="container">
