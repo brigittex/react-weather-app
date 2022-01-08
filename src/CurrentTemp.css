@@ -11,3 +11,7 @@
   bottom: 45px;
   padding-left: 10px;
 }
+
+.CurrentTemp a {
+  text-decoration: none;
+}
