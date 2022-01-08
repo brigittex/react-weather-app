@@ -1,0 +1,12 @@
+.CurrentTemp {
+  font-size: 90px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.CurrentTemp small {
+  font-size: 35px;
+  font-weight: normal;
+  position: relative;
+  bottom: 30px;
+}
