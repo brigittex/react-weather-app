@@ -68,7 +68,7 @@ export default function CurrentWeather(props) {
     <div className="CurrentWeather">
       <div>{weekday}</div>
       <div>{date}</div>
-      <div>{time}</div>
+      <div>Last update: {time}</div>
       <hr />
       <div>{props.weather.description}</div>
       <div>

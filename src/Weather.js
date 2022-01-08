@@ -80,10 +80,10 @@ export default function Weather(props) {
                 <div className="col-4">
                   <CurrentWeather weather={weather} />
                 </div>
-                <div className="col-4">
+                <div className="col-3">
                   <CurrentIcon weather={weather} />
                 </div>
-                <div className="col-4">
+                <div className="col-5">
                   <CurrentTemp weather={weather} />
                 </div>
               </div>
