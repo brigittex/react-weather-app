@@ -20,7 +20,7 @@ export default function Weather(props) {
       description: response.data.weather[0].main,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed * 3.6), //converting from m/s to km/h
-      iconURL: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      //iconURL: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       icon: response.data.weather[0].icon,
       feels_like: Math.round(response.data.main.feels_like),
       dt: new Date(response.data.dt * 1000),
