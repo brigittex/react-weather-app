@@ -34,9 +34,10 @@ export default function Forecast(props) {
     );
   } else {
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
-    let apiKey = "a825d12564855984e0e5673562cb2c52";
+    // let apiKey = "a825d12564855984e0e5673562cb2c52";
+    let apiKey2 = "dce1c16a84262764d038b91391a2c359";
     let units = "metric";
-    let apiUrl = `${apiEndpoint}appid=${apiKey}&units=${units}&lat=${props.weather.lat}&lon=${props.weather.lon}`;
+    let apiUrl = `${apiEndpoint}appid=${apiKey2}&units=${units}&lat=${props.weather.lat}&lon=${props.weather.lon}`;
     console.log(apiUrl);
     //axios.get(apiUrl).then(handleResponse);
     return (
