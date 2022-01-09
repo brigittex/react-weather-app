@@ -20,12 +20,16 @@ export default function ForecastDay(props) {
   }
 
   return (
-    <div>
+    <div className="ForecastDay">
       <div className="Forecast-day">{weekday()}</div>
-      <WeatherIcon icon={props.data.weather[0].icon} size={50} />
+      <WeatherIcon icon={props.data.weather[0].icon} size={40} />
       <div>
-        <span className="Forecast-min">{minTemp()}</span>
-        <span className="Forecast-max">{maxTemp()}</span>
+        <span className="Forecast-min">
+          <i className="fas fa-long-arrow-alt-down"></i> {minTemp()}
+        </span>
+        <span className="Forecast-max">
+          {maxTemp()} <i className="fas fa-long-arrow-alt-up"></i>
+        </span>
       </div>
     </div>
   );

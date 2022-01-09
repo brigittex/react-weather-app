@@ -66,7 +66,7 @@ export default function Weather(props) {
     navigator.geolocation.getCurrentPosition(handleCurrentLocation);
   }
 
-  let form = (
+  let searchForm = (
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-8">
@@ -91,7 +91,7 @@ export default function Weather(props) {
     </form>
   );
 
-  let form2 = (
+  let currentLocationForm = (
     <form>
       <div className="row">
         <div className="col-8"></div>
@@ -107,21 +107,22 @@ export default function Weather(props) {
       </div>
     </form>
   );
+
   if (weather.loaded) {
     return (
       <div className="Weather">
         <div className="container">
           <div className="weather-app-wrapper">
             <div className="weather-app">
-              {form}
-              {form2}
+              {searchForm}
+              {currentLocationForm}
               <City weather={weather} />
               <div className="row">
                 <div className="col-4">
                   <CurrentWeather weather={weather} />
                 </div>
                 <div className="col-3">
-                  <WeatherIcon icon={weather.icon} size={130} />
+                  <WeatherIcon icon={weather.icon} size={110} />
                 </div>
                 <div className="col-5">
                   <CurrentTemp weather={weather} />
@@ -142,14 +143,14 @@ export default function Weather(props) {
         <div className="container">
           <div className="weather-app-wrapper">
             <div className="weather-app">
-              {form}
-              {form2}
+              {searchForm}
+              {currentLocationForm}
               <div className="loader">
                 <Loader
                   type="BallTriangle"
                   color="#989898"
-                  height={100}
-                  width={100}
+                  height={80}
+                  width={80}
                 />
               </div>
             </div>

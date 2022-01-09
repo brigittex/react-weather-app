@@ -33,6 +33,9 @@ export default function Forecast(props) {
             }
           })}
         </div>
+        <div className="Forecast-unit">
+          All forecast temperatures in Celsius (°C)
+        </div>
       </div>
     );
   } else {

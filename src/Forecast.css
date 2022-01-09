@@ -10,3 +10,19 @@
   opacity: 0.5;
   padding-right: 5px;
 }
+
+.Forecast .Forecast-unit {
+  padding-top: 20px;
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.col {
+  border-radius: 10px;
+  transition: 120ms ease-in-out;
+  padding: 20px 0;
+}
+.col:hover {
+  background: rgb(239, 247, 252);
+  cursor: default;
+}

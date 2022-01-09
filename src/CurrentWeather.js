@@ -46,6 +46,9 @@ function findTime(response) {
   if (hour > 12) {
     hour = hour - 12;
     half = "pm";
+  } else if (hour === 0) {
+    hour = 12;
+    half = "am";
   } else {
     half = "am";
   }
@@ -70,15 +73,20 @@ export default function CurrentWeather(props) {
       <div>{date}</div>
       <div>Last update: {time}</div>
       <hr />
-      <div>{props.weather.description}</div>
       <div>
-        Feels like: <span>{props.weather.feels_like}</span>°C
+        <i className="fas fa-play"></i> {props.weather.description}
       </div>
       <div>
-        Humidity: <span>{props.weather.humidity}</span> %
+        <i className="fas fa-thermometer-half"></i> Feels like:{" "}
+        <span>{props.weather.feels_like}</span>°C
       </div>
       <div>
-        Wind: <span>{props.weather.wind}</span> km/h
+        <i className="fas fa-tint"></i> Humidity:{" "}
+        <span>{props.weather.humidity}</span> %
+      </div>
+      <div>
+        <i className="fas fa-wind"></i> Wind: <span>{props.weather.wind}</span>{" "}
+        km/h
       </div>
     </div>
   );
