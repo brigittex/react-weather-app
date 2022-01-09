@@ -18,7 +18,6 @@ export default function Forecast(props) {
   }
 
   if (loaded) {
-    console.log(forecastData);
     return (
       <div className="Forecast">
         <div className="row">
@@ -44,16 +43,8 @@ export default function Forecast(props) {
     let apiUrl = `${apiEndpoint}appid=${apiKey2}&units=${units}&lat=${props.weather.lat}&lon=${props.weather.lon}`;
     axios.get(apiUrl).then(handleResponse);
     return (
-      <div>
-        Loading...
-        <div className="loader">
-          <Loader
-            type="BallTriangle"
-            color="#989898"
-            height={100}
-            width={100}
-          />
-        </div>
+      <div className="loader">
+        <Loader type="BallTriangle" color="#989898" height={80} width={80} />
       </div>
     );
   }
