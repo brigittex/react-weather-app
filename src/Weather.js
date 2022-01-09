@@ -47,10 +47,29 @@ export default function Weather(props) {
     axios.get(apiUrl).then(logWeather);
   }
 
+  function searchCurrent(lat, lon) {
+    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
+    let apiKey = "a825d12564855984e0e5673562cb2c52";
+    let units = "metric";
+    let apiUrl = `${apiEndpoint}appid=${apiKey}&units=${units}&lat=${lat}&lon=${lon}`;
+    axios.get(apiUrl).then(logWeather);
+  }
+
+  function handleCurrentLocation(location) {
+    let lat = location.coords.latitude;
+    let lon = location.coords.longitude;
+    searchCurrent(lat, lon);
+  }
+
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(handleCurrentLocation);
+  }
+
   let form = (
     <form onSubmit={handleSubmit}>
       <div className="row">
-        <div className="col-9">
+        <div className="col-8">
           <div className="mb-3">
             <input
               type="text"
@@ -63,9 +82,26 @@ export default function Weather(props) {
           </div>
         </div>
 
-        <div className="col-3">
+        <div className="col-4">
           <button type="submit" className="btn btn-primary w-100 float-end">
             <i className="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+
+  let form2 = (
+    <form>
+      <div className="row">
+        <div className="col-8"></div>
+        <div className="col-4">
+          <button
+            type="submit"
+            className="btn btn-success w-100 float-end"
+            onClick={getCurrentLocation}
+          >
+            <i className="fas fa-map-marker-alt"></i> Current Location
           </button>
         </div>
       </div>
@@ -78,6 +114,7 @@ export default function Weather(props) {
           <div className="weather-app-wrapper">
             <div className="weather-app">
               {form}
+              {form2}
               <City weather={weather} />
               <div className="row">
                 <div className="col-4">
@@ -106,6 +143,7 @@ export default function Weather(props) {
           <div className="weather-app-wrapper">
             <div className="weather-app">
               {form}
+              {form2}
               <div className="loader">
                 <Loader
                   type="BallTriangle"
