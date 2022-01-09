@@ -6,15 +6,15 @@ import "./Forecast.css";
 
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
-  let [forecastData, setForecastData] = useState();
+  let [forecastData, setForecastData] = useState([]);
 
   function handleResponse(response) {
     setLoaded(true);
-    //setForecastData(response.data.daily); //is this working?
-    //console.log(forecastData);
+    setForecastData(response.data.daily);
   }
 
   if (loaded) {
+    console.log(forecastData);
     return (
       <div className="Forecast">
         <div className="row">
@@ -34,12 +34,11 @@ export default function Forecast(props) {
     );
   } else {
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
-    // let apiKey = "a825d12564855984e0e5673562cb2c52";
+    //let apiKey = "a825d12564855984e0e5673562cb2c52";
     let apiKey2 = "dce1c16a84262764d038b91391a2c359";
     let units = "metric";
     let apiUrl = `${apiEndpoint}appid=${apiKey2}&units=${units}&lat=${props.weather.lat}&lon=${props.weather.lon}`;
-    console.log(apiUrl);
-    //axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(handleResponse);
     return (
       <div>
         Loading...
