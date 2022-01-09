@@ -11,7 +11,7 @@ export default function Footer() {
       >
         Open-source code
       </a>{" "}
-      by Brigitte Giguère 🍁
+      by Brigitte Giguère <i class="fab fa-canadian-maple-leaf"></i>
     </div>
   );
 }
